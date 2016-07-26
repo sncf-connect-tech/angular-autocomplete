@@ -2,7 +2,7 @@ angular-autocomplete module
 ===========================
 
 ```
-bower install git@gitlab.socrate.vsct.fr:dwm-sii/angular-autocomplete.git
+bower install git@github.com:voyages-sncf-technologies/angular-autocomplete.git
 npm install
 grunt
 ```
