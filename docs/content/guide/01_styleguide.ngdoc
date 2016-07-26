@@ -1,0 +1,9 @@
+@ngdoc overview
+@name Style guide
+@description
+
+# Code style guide
+[See John Papa style guide](https://github.com/johnpapa/angularjs-styleguide)
+
+# Commit conventions
+[AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y)

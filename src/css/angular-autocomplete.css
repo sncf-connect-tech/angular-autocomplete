@@ -1,0 +1,39 @@
+
+.autocomplete__list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  font-size: 0.9em;
+  box-shadow: 0 0 8px rgba(0,0,0,0.33);
+  padding: .5em;
+  margin-top: 0;
+  list-style-type: none;
+}
+
+.autocomplete__list .autocomplete__item {
+  position: relative;
+  padding: 0.7em;
+  border-bottom: 1px solid #bababa;
+  cursor: pointer;
+}
+
+.autocomplete__list .autocomplete__item:last-child {
+  border-bottom: none;
+}
+
+.autocomplete__list .autocomplete__item mark {
+  color: #0088ce;
+  background-color: transparent;
+}
+
+.autocomplete__list .autocomplete__item.selected {
+  background: #0088ce;
+  color: #fff;
+}
+
+.autocomplete__list .autocomplete__item.selected mark {
+  color: rgba(255,255,255,0.8);
+}

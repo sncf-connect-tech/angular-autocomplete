@@ -1,0 +1,5 @@
+node_modules
+src/vendors
+.idea
+build
+npm-debug.log

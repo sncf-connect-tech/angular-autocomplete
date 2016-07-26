@@ -1,0 +1,18 @@
+{
+  "name": "angular-autocomplete",
+  "version": "2.1.4",
+  "authors": [
+    "Gaelle Gomez <ggomez.prestataire@voyages-sncf.com>",
+    "Matthieu Lacrampe <mlacrampe.prestataire@voyages-sncf.com>"
+  ],
+  "_source": "git@gitlab.socrate.vsct.fr:dwm-sii/angular-autocomplete.git",
+  "_target": "*",
+  "_originalSource": "git@gitlab.socrate.vsct.fr:dwm-sii/angular-autocomplete.git",
+  "main": [
+    "dist/angular-autocomplete.css",
+    "dist/angular-autocomplete.js"
+  ],
+  "dependencies": {
+    "angular": "^1.4.7"
+  }
+}

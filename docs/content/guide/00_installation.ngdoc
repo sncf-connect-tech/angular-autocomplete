@@ -1,0 +1,57 @@
+@ngdoc overview
+@name Installation
+@description
+
+# Installation
+
+## Installation des dépendances
+
+Ces outils sont utilisés au cours du développement de `Angular autocomplete`.
+Veuillez installer les outils suivants :
+
+- [Grunt](http://gruntjs.com)
+- [Karma Testrunner](http://karma-runner.github.com)
+- [Bower](https://github.com/twitter/bower)
+
+## Installation avec Git
+
+Cloner l'ensemble du dépôt depuis Git
+
+```
+$ git clone git@gitlab.socrate.vsct.fr:dwm-sii/angular-autocomplete.git
+```
+Pour installer toutes les dépendances nécessaires,
+il suffit de lancer la commande suivante dans le dépôt cloné de Angular autocomplete.
+
+```
+$ npm install
+```
+
+Des conflits de dépendance peuvent survenir durant l'installation, vous devrez choisir la bonne version.
+
+Bower sera lancé à la fin pour installer les librairies et autres scripts.
+
+## Exécution des tests unitaires fournis
+
+Accédez au dossier où vous avez cloné le projet et exécutez le **lanceur de Karma** via grunt :
+
+```
+$ grunt test
+```
+
+Cela va démarrer un lanceur qui utilise le **framework de test Jasmine** pour exécuter tous
+les tests unitaires fournis.
+
+
+## Compilation des sources
+
+Lorsque tous les tests passent avec succès, vous pouvez construire la version de production.
+
+Pour faire la compilation de `Angular autocomplete`, exécutez :
+
+```
+$ grunt
+```
+
+Cela générera des fichiers prêts pour le développement et l'utilisation en production dans
+le dossier `dist`.
