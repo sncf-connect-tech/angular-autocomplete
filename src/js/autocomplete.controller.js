@@ -151,7 +151,8 @@
       vm.selected.index = index;
     }
 
-    function confirmSelected() {
+    function confirmSelected(index) {
+      vm.selected.index = index;
       vm.search = (!vm.results.length || vm.selected.index === -1) ? vm.search : vm.results[vm.selected.index].name;
       vm.results = [];
       vm.focused = false;

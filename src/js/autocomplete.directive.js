@@ -42,8 +42,8 @@
               'data-ng-repeat="result in autocompleteVm.results" ' +
               'data-ng-class="{ selected: autocompleteVm.selected.index === $index }" ' +
               'data-ng-mouseover="autocompleteVm.setSelected($index)" ' +
-              'touch-start="autocompleteVm.setSelected($index)" ' +
-              'data-ng-click="autocompleteVm.confirmSelected()" ' +
+              'touch-start="autocompleteVm.confirmSelected($index)" ' +
+              'data-ng-click="autocompleteVm.confirmSelected($index)" ' +
               'data-ng-bind-html="autocompleteVm.setEmphasis(result.name, autocompleteVm.search)">' +
             '</li> ' +
           '</ul>',
