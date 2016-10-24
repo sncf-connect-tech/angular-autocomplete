@@ -166,7 +166,8 @@
       vm.selected.index = index;
     }
 
-    function confirmSelected() {
+    function confirmSelected(index) {
+      vm.selected.index = index;
       vm.search = (!vm.results.length || vm.selected.index === -1) ? vm.search : vm.results[vm.selected.index].name;
       vm.results = [];
       vm.focused = false;
@@ -224,8 +225,8 @@
               'data-ng-repeat="result in autocompleteVm.results" ' +
               'data-ng-class="{ selected: autocompleteVm.selected.index === $index }" ' +
               'data-ng-mouseover="autocompleteVm.setSelected($index)" ' +
-              'touch-start="autocompleteVm.setSelected($index)" ' +
-              'data-ng-click="autocompleteVm.confirmSelected()" ' +
+              'touch-start="autocompleteVm.confirmSelected($index)" ' +
+              'data-ng-click="autocompleteVm.confirmSelected($index)" ' +
               'data-ng-bind-html="autocompleteVm.setEmphasis(result.name, autocompleteVm.search)">' +
             '</li> ' +
           '</ul>',
@@ -280,48 +281,6 @@
   'use strict';
 
   /**
-   * @ngdoc service
-   * @name autocomplete.StationFinderService
-   * @module autocomplete
-   *
-   * @requires $window
-   *
-   * @description
-   * Initialize and comunnication with 3rd plugin stationFinder
-   *
-   * @ngInject
-   */
-  function StationFinderService($window) {
-    return {
-      isAvailable: function () {
-        return ($window.STF_WIDGET !== null);
-      },
-      set: function (search, callback) {
-        if ($window.STF_WIDGET === null) {
-          return;
-        }
-        $window.STF_WIDGET.show(
-          function (data) {
-            callback(data);
-          },
-          search
-        );
-      }
-    };
-  }
-  StationFinderService.$inject = ['$window'];
-
-  angular
-    .module('autocomplete')
-    .factory('StationFinderService', StationFinderService);
-
-})();
-
-(function () {
-
-  'use strict';
-
-  /**
    * @ngdoc directive
    * @name autocomplete.directive:touchStart
    * @module autocomplete
@@ -349,88 +308,5 @@
   angular
     .module('autocomplete')
     .directive('touchStart', touchStart);
-
-})();
-
-(function () {
-
-  'use strict';
-
-  /**
-   * @ngdoc service
-   * @name autocomplete.TranslationService
-   * @module autocomplete
-   *
-   * @description
-   * Translation for autocomplete directive
-   *
-   * @ngInject
-   */
-  function TranslationService() {
-
-    var lang = 'en',
-        I18N = {
-          BEGIN_WITH: {
-            fr: 'Commençant par',
-            en: 'Starts with',
-            es: 'que empieza por',
-            it: 'comincia per',
-            nl: 'Begint met',
-            de: 'Beginnt mit'
-          },
-          CONTAINING: {
-            fr: 'Contenant',
-            en: 'Contains',
-            es: 'que contiene',
-            it: 'contiene',
-            nl: 'Bevat',
-            de: 'Enthält'
-          },
-          EQUIVALENT: {
-            fr: 'Commençant par équivalent',
-            en: 'Starts with',
-            es: 'que empieza por',
-            it: 'comincia per',
-            nl: 'Begint met',
-            de: 'Beginnt mit'
-          },
-          CONTAINING_EQUIVALENT: {
-            fr: 'Contenant équivalent',
-            en: 'Contains',
-            es: 'que contiene',
-            it: 'contiene',
-            nl: 'Bevat',
-            de: 'Enthält'
-          },
-          STATION_FINDER: {
-            fr: 'Trouver votre gare',
-            en: 'Find your station',
-            es: 'Encuentre su estación',
-            it: 'Trova la stazione',
-            nl: 'Zoek uw station',
-            de: 'Finden Sie Ihr Station'
-          }
-        };
-
-    return {
-      get: function (_label, _lang) {
-        if (!I18N.hasOwnProperty(_label)) {
-          return '';
-        }
-        if (typeof _lang === 'undefined') {
-          _lang = lang;
-        }
-        if (!I18N[_label].hasOwnProperty(_lang)) {
-          return I18N[_label][lang];
-        }
-
-        return I18N[_label][_lang];
-      }
-    };
-  }
-
-  angular
-    .module('autocomplete')
-    .factory('TranslationService', TranslationService);
 
 })();
