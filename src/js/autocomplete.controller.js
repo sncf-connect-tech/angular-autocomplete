@@ -157,7 +157,7 @@
       if (!vm.results.length || vm.selected.index === -1) {
          vm.search = vm.search;
       }
-      else if (vm.selected.index) {
+      else if (vm.selected.index || vm.selected.index === 0) {
         vm.search = vm.results[vm.selected.index].name;
       }
 
