@@ -128,11 +128,11 @@
           prevent = true;
           break;
         case 13: // Enter
-          vm.confirmSelected();
+          vm.confirmSelected(vm.selected.index);
           prevent = true;
           break;
         case 9: // Tab
-          vm.confirmSelected();
+          vm.confirmSelected(vm.selected.index);
           break;
         default:
           break;
@@ -153,7 +153,14 @@
 
     function confirmSelected(index) {
       vm.selected.index = index;
-      vm.search = (!vm.results.length || vm.selected.index === -1 || !vm.selected.index) ? vm.search : vm.results[vm.selected.index].name;
+
+      if (!vm.results.length || vm.selected.index === -1) {
+         vm.search = vm.search;
+      }
+      else if (vm.selected.index) {
+        vm.search = vm.results[vm.selected.index].name;
+      }
+
       vm.results = [];
       vm.focused = false;
     }

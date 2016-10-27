@@ -54,7 +54,7 @@
 
         element.bind('blur', function () {
           scope.autocompleteVm.focused = false;
-          scope.autocompleteVm.confirmSelected();
+          scope.autocompleteVm.confirmSelected(scope.autocompleteVm.selected.index);
           scope.$apply();
         });
 
