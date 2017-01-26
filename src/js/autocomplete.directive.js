@@ -23,6 +23,7 @@
       scope: {
         search: '=ngModel',
         getList: '=serviceCall',
+        onSelect: '&?',
         debounce: '@?'
       },
       controller: 'AutocompleteController',

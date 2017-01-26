@@ -1,7 +1,7 @@
 {
   "name": "angular-autocomplete",
   "private": true,
-  "version": "2.1.4",
+  "version": "1.0.2",
   "description": "Autocomplete",
   "repository": {
     "type": "git",

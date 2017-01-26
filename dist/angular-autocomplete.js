@@ -178,6 +178,10 @@
 
       vm.results = [];
       vm.focused = false;
+
+      if (vm.onSelect) {
+        vm.onSelect({str: vm.search});
+      }
     }
   }
   AutocompleteController.$inject = ['$timeout', '$sce', '$attrs'];
@@ -213,6 +217,7 @@
       scope: {
         search: '=ngModel',
         getList: '=serviceCall',
+        onSelect: '&?',
         debounce: '@?'
       },
       controller: 'AutocompleteController',

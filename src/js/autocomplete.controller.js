@@ -163,6 +163,10 @@
 
       vm.results = [];
       vm.focused = false;
+
+      if (vm.onSelect) {
+        vm.onSelect({str: vm.search});
+      }
     }
   }
 
