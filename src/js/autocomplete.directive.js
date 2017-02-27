@@ -16,7 +16,7 @@
    *
    * @ngInject
    */
-  function autocompleteDirective($compile) {
+  function autocompleteDirective($compile, $timeout) {
     return {
       restrict: 'A',
       require: 'ngModel',
@@ -54,32 +54,36 @@
         scope.aria.ariaOwns = attrs.ariaOwns || 'vsct-autocomplete';
 
         element.bind('blur', function () {
-          scope.autocompleteVm.focused = false;
-          scope.autocompleteVm.confirmSelected(scope.autocompleteVm.selected.index);
-          scope.$apply();
+          $timeout(function () {
+            scope.autocompleteVm.focused = false;
+            // scope.autocompleteVm.confirmSelected(scope.autocompleteVm.selected.index);
+          });
         });
 
         element.bind('focus', function () {
-          scope.autocompleteVm.focused = true;
-          scope.autocompleteVm.setAutocomplete();
-          scope.$apply();
+          $timeout(function () {
+            scope.autocompleteVm.focused = true;
+            // scope.autocompleteVm.setAutocomplete();
+          });
         });
 
         element.bind('keydown', function (event) {
-          scope.autocompleteVm.focused = true;
-          scope.autocompleteVm.selectWithKeyboard(event);
-          scope.$apply();
+          $timeout(function () {
+            scope.autocompleteVm.focused = true;
+            scope.autocompleteVm.selectWithKeyboard(event);
+          });
         });
 
         element.bind('keyup', function () {
-          if (!scope.autocompleteVm.focused) {
-            return;
-          }
-          if (oldValue !== element.val()) {
-            scope.autocompleteVm.setAutocomplete();
-            oldValue = element.val();
-          }
-          scope.$apply();
+          $timeout(function () {
+            if (!scope.autocompleteVm.focused) {
+              return;
+            }
+            if (oldValue !== element.val()) {
+              scope.autocompleteVm.setAutocomplete();
+              oldValue = element.val();
+            }
+          });
         });
 
         element.after($compile(template)(scope));
