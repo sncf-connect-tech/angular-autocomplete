@@ -169,10 +169,7 @@
     function confirmSelected(index) {
       vm.selected.index = index;
 
-      if (!vm.results.length || vm.selected.index === -1) {
-         vm.search = vm.search;
-      }
-      else if (vm.selected.index || vm.selected.index === 0) {
+      if (vm.selected.index || vm.selected.index === 0) {
         vm.search = vm.results[vm.selected.index].name;
       }
 
@@ -250,8 +247,7 @@
         element.bind('blur', function () {
           $timeout(function () {
             scope.autocompleteVm.focused = false;
-            // scope.autocompleteVm.confirmSelected(scope.autocompleteVm.selected.index);
-          });
+          }, 100);
         });
 
         element.bind('focus', function () {

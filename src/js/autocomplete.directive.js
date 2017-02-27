@@ -56,8 +56,7 @@
         element.bind('blur', function () {
           $timeout(function () {
             scope.autocompleteVm.focused = false;
-            // scope.autocompleteVm.confirmSelected(scope.autocompleteVm.selected.index);
-          });
+          }, 100);
         });
 
         element.bind('focus', function () {
