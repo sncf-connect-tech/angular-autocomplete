@@ -158,6 +158,7 @@
         vm.search = vm.results[vm.selected.index].name;
       }
 
+      vm.results = [];
       vm.focused = false;
 
       if (vm.onSelect) {

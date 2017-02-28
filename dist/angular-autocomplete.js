@@ -173,6 +173,7 @@
         vm.search = vm.results[vm.selected.index].name;
       }
 
+      vm.results = [];
       vm.focused = false;
 
       if (vm.onSelect) {
@@ -250,29 +251,26 @@
         });
 
         element.bind('focus', function () {
-          $timeout(function () {
-            scope.autocompleteVm.focused = true;
-            // scope.autocompleteVm.setAutocomplete();
-          });
+          scope.autocompleteVm.focused = true;
+          scope.autocompleteVm.setAutocomplete();
+          scope.$apply();
         });
 
         element.bind('keydown', function (event) {
-          $timeout(function () {
-            scope.autocompleteVm.focused = true;
-            scope.autocompleteVm.selectWithKeyboard(event);
-          });
+          scope.autocompleteVm.focused = true;
+          scope.autocompleteVm.selectWithKeyboard(event);
+          scope.$apply();
         });
 
         element.bind('keyup', function () {
-          $timeout(function () {
-            if (!scope.autocompleteVm.focused) {
-              return;
-            }
-            if (oldValue !== element.val()) {
-              scope.autocompleteVm.setAutocomplete();
-              oldValue = element.val();
-            }
-          });
+          if (!scope.autocompleteVm.focused) {
+            return;
+          }
+          if (oldValue !== element.val()) {
+            scope.autocompleteVm.setAutocomplete();
+            oldValue = element.val();
+          }
+          scope.$apply();
         });
 
         element.after($compile(template)(scope));
