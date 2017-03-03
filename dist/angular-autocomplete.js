@@ -169,7 +169,7 @@
     function confirmSelected(index) {
       vm.selected.index = index;
 
-      if (vm.selected.index || vm.selected.index === 0) {
+      if (vm.selected.index >= 0) {
         vm.search = vm.results[vm.selected.index].name;
       }
 
