@@ -72,7 +72,7 @@
       getList();
       _reqTimeout = $timeout(function () {
         _blocked = false;
-        if (vm.focused && ( vm.search !== _reqVal)) {
+        if (vm.focused && (vm.search !== _reqVal)) {
           setAutocomplete();
         }
       }, debounce);

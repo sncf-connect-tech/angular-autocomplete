@@ -6,19 +6,18 @@
     <link rel="stylesheet" href="css/angular-autocomplete.css">
     <style>
       body {
-        font-family: arial;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
         margin: 0;
         padding: 0;
       }
       header {
-        margin: 0px;
+        margin: 0;
         background-color: #df2673;
         position: fixed;
         top: 0;
         bottom: 0;
         left: 0;
         width: 400px;
-        padding;
       }
       header h1 {
         font-weight: normal;
@@ -56,15 +55,12 @@
         color: #c7ed3b;
         text-decoration: line-through;
       }
-      .code .attributes {
-        padding-left: 10px;
-      }
       button {
         background-color: #fff;
         padding: 10px;
         border-radius: 3px;
         border: 1px solid #8c8c8c;
-        font-family: arial;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
         text-transform: uppercase;
       }
       @media (max-width: 940px) {
@@ -79,6 +75,11 @@
       .autocomplete {
         position: relative;
         width: 420px;
+      }
+      .autocomplete label {
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 5px;
       }
       .autocomplete input[type=text] {
         padding: 10px;
@@ -109,6 +110,7 @@
           <h2>Demo</h2>
           <div data-ng-controller="DemoController">
               <div class="autocomplete">
+                  <label for="origin">Label 1:</label>
                   <input
                       type="text"
                       name="origin"
@@ -119,12 +121,13 @@
                       aria-autocomplete="list"
                       aria-owns="origin-listbox"
                       vsct-autocomplete
-                      data-ng-model="origin"
+                      ng-model="origin"
                       service-call="getList"
                       debounce="1000">
               </div>
               <br>
               <div class="autocomplete">
+                  <label for="destination">Label 2:</label>
                   <input
                       type="text"
                       name="destination"
@@ -135,7 +138,7 @@
                       aria-autocomplete="list"
                       aria-owns="origin-listbox"
                       vsct-autocomplete
-                      data-ng-model="destination"
+                      ng-model="destination"
                       service-call="getList"
                       debounce="1000">
               </div>
@@ -147,8 +150,6 @@
     <script src="js/autocomplete.controller.js"></script>
     <script src="js/autocomplete.directive.js"></script>
     <script src="js/touch.directive.js"></script>
-    <!--<script src="js/station-finder.service.js"></script>-->
-    <!--<script src="js/translation.service.js"></script>-->
     <script>
       (function() {
 
@@ -200,7 +201,6 @@
         angular
           .module('demo', ['autocomplete'])
           .controller('DemoController', DemoController);
-
       })();
     </script>
   </body>
