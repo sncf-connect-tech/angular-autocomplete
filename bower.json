@@ -3,16 +3,19 @@
   "version": "1.0.7",
   "authors": [
     "Gaelle Gomez <ggomez.prestataire@voyages-sncf.com>",
-    "Matthieu Lacrampe <mlacrampe.prestataire@voyages-sncf.com>"
+    "Matthieu Lacrampe <mlacrampe.prestataire@voyages-sncf.com>",
+    "Alexandre Touchard <atouchard@voyages-sncf.com>"
   ],
-  "_source": "git@gitlab.socrate.vsct.fr:dwm-sii/angular-autocomplete.git",
+  "_source": "git@github.com:voyages-sncf-technologies/angular-autocomplete.git",
   "_target": "*",
-  "_originalSource": "git@gitlab.socrate.vsct.fr:dwm-sii/angular-autocomplete.git",
+  "_originalSource": "git@github.com:voyages-sncf-technologies/angular-autocomplete.git",
   "main": [
     "dist/angular-autocomplete.css",
-    "dist/angular-autocomplete.js"
+    "dist/angular-autocomplete.js",
+    "dist/angular-autocomplete.min.js"
   ],
   "dependencies": {
-    "angular": "^1.4.7"
+    "angular": "^1.4.7",
+    "angular-mocks": "^1.4.7"
   }
 }
