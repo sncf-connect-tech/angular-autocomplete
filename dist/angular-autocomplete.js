@@ -112,6 +112,7 @@
       }
       var cleanedSearch = search.replace(/[(|)]/g, '');
       cleanedSearch = cleanedSearch.replace(/\s$/, '');
+      cleanedSearch = cleanedSearch.replace(/\\/g, '');
       var regex = new RegExp('(' + cleanedSearch + ')', 'gi');
       var mark = s.replace(regex, '<mark>$1</mark>');
       return $sce.trustAsHtml(mark);
