@@ -7,16 +7,6 @@ npm install
 grunt
 ```
 
-Sources
--------
-src
-&nbsp;&lfloor; js/
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lfloor; autocomplete.module.js
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lfloor; autocomplete.directive.js
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lfloor; autocomplete.service.js &larr; where you will put your service
-&nbsp;&lfloor; css/
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lfloor; angular-autocomplete.css
-
 Needed files
 ------------
 #### CSS
@@ -25,10 +15,6 @@ Needed files
 <link rel="stylesheet" type="text/css" href="dist/angular-autocomplete.css">
 ```
 #### JavaScript
-```
-<!-- AngularJS tested versions -->
-<script src="vendors/angular/angular.min.js"></script>
-```
 ```
 <!-- angular-autocomplete module (generated file) -->
 <script src="dist/js/angular-autocomplete.js"></script>
@@ -154,7 +140,3 @@ service-call: no default value
 placeholder: ""
 required: false
 ```
-
-Example
-------
-**index.html** contains several samples with different attribute values and code.

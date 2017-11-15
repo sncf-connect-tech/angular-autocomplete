@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>angular-autocomplete module</title>
+    <link rel="stylesheet" href="../src/css/angular-autocomplete.css">
+    <style>
+      body {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        margin: 0;
+        background-color: #df2673;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 400px;
+      }
+      header h1 {
+        font-weight: normal;
+        padding: 20px;
+        margin: 0;
+        color: #fff;
+      }
+      header h1 span {
+        color: #000;
+      }
+      form {
+        background-color: #fff;
+        margin-left: 400px;
+      }
+      .wrapper {
+        margin: 20px;
+      }
+      .code {
+        background-color: #222;
+        color: #ddd;
+        font-weight: normal;
+        border-radius: 2px;
+        padding: 10px;
+        font-size: 12px;
+        font-family: monospace;
+        overflow-x: auto;
+      }
+      .code span {
+        color: #df2673;
+      }
+      .code i {
+        color: #c7ed3b;
+      }
+      .code em {
+        color: #c7ed3b;
+        text-decoration: line-through;
+      }
+      button {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid #8c8c8c;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+      }
+      @media (max-width: 940px) {
+        header {
+          position: relative;
+          width: 100%;
+        }
+        form {
+          margin-left: 0;
+        }
+      }
+      .autocomplete {
+        position: relative;
+        width: 420px;
+      }
+      .autocomplete label {
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .autocomplete input[type=text] {
+        padding: 10px;
+        font-size: 12px;
+        width: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>angular-autocomplete <span>module</span></h1>
+    </header>
+    <form data-ng-app="demo" method="get" action="">
+      <div class="wrapper">
+        <div>
+          <h2>Directive & attributes</h2>
+<pre class="code">
+&lt;<span>div</span> <i>class</i>="autocomplete"&gt;
+  &lt;<span>input</span>
+    <i>type</i>="text"
+    <i>vsct-autocomplete</i>        // Name of the directive
+    <i>data-ng-model</i>="origin"
+    <i>service-call</i>="getList"   // Name of the method to retrieve results
+    <i>debounce</i>="100"&gt;          // Time between each try
+&lt;<span>div</span>&gt;
+</pre>
+        </div>
+          <h2>Demo</h2>
+          <div data-ng-controller="DemoController">
+              <div class="autocomplete">
+                  <label for="origin">Label 1:</label>
+                  <input
+                      type="text"
+                      name="origin"
+                      id="origin"
+                      autocorrect="off"
+                      autocomplete="off"
+                      role="combobox"
+                      aria-autocomplete="list"
+                      aria-owns="origin-listbox"
+                      vsct-autocomplete
+                      ng-model="origin"
+                      service-call="getList"
+                      debounce="1000">
+              </div>
+              <br>
+              <div class="autocomplete">
+                  <label for="destination">Label 2:</label>
+                  <input
+                      type="text"
+                      name="destination"
+                      id="destination"
+                      autocorrect="off"
+                      autocomplete="off"
+                      role="combobox"
+                      aria-autocomplete="list"
+                      aria-owns="origin-listbox"
+                      vsct-autocomplete
+                      ng-model="destination"
+                      service-call="getList"
+                      debounce="1000">
+              </div>
+          </div>
+      </div>
+    </form>
+    <script src="../src/vendors/angular/angular.js"></script>
+    <script src="../src/js/autocomplete.module.js"></script>
+    <script src="../src/js/autocomplete.controller.js"></script>
+    <script src="../src/js/autocomplete.directive.js"></script>
+    <script src="../src/js/touch.directive.js"></script>
+    <script>
+      (function() {
+
+        'use strict';
+
+        function DemoController($scope) {
+          $scope.getList = function(search, callback) {
+            var results = [
+              {
+                'country': 'FR',
+                'uicCode': '95027146',
+                'name': 'Paris (Toutes gares intramuros)'
+              },
+              {
+                'country': 'FR',
+                'uicCode': '8724855',
+                'name': 'Paris Marne-la-Vallée - Chessy (Gare TGV et Ouigo, 25 km de Paris)'
+              },
+              {
+                'country': 'FR',
+                'uicCode': '8724855',
+                'name': 'Paris Aéroport - Roissy - Charles-de-Gaulle (Gare TGV - CDG 2, 24 km de Paris)'
+              },
+              {
+                'country': 'FR',
+                'uicCode': '77011184',
+                'name': 'Gare d\'Austerlitz (Paris)'
+              },
+              {
+                'country': 'FR',
+                'uicCode': '77011184',
+                'name': 'Gare de Bercy (Paris)'
+              },
+              {
+                'country': 'FR',
+                'uicCode': '77011184',
+                'name': 'PARIJKSEN'
+              },
+              {
+                'country': 'FR',
+                'uicCode': '77011184',
+                'name': 'PARTSMUM'
+              }
+            ];
+            callback(results);
+          }
+        }
+
+        angular
+          .module('demo', ['autocomplete'])
+          .controller('DemoController', DemoController);
+      })();
+    </script>
+  </body>
+</html>
